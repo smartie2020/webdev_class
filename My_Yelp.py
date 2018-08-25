@@ -1,23 +1,30 @@
+#createor : Abbas
+
+
+
 import requests
 
-api_key = "WwnFNTOLh59acC69ySVCT6owelmI991pFRM1Uju2RwJCZyL2TaGKS7FV5EEo4HJ3mlGSk9ljujJt-SkTwrefSYZyqL6QGYlbym9mdgI3KhU2yh4haUH4BLZPgmt_W3Yx"
+def search_businesses(search_term, search_location):
 
-url= "https://api.yelp.com/v3/businesses/search"
+    api_key = "WwnFNTOLh59acC69ySVCT6owelmI991pFRM1Uju2RwJCZyL2TaGKS7FV5EEo4HJ3mlGSk9ljujJt-SkTwrefSYZyqL6QGYlbym9mdgI3KhU2yh4haUH4BLZPgmt_W3Yx"
 
-my_headers = {
-    "Authorization":"Bearer %s" % api_key
-}
+    url= "https://api.yelp.com/v3/businesses/search"
 
-my_params = {
-    "term": "restaurants",
-    "location": "chicago",
-    "limit": 3,
-}
+    my_headers = {
+        "Authorization":"Bearer %s" % api_key
+    }
 
-businesses_object = requests.get(url, headers=my_headers, params=my_params)
+    my_params = {
+        "term": search_term,
+        "location": search_location,
+        "limit": 3,
+    }
 
-businesses_dict= businesses_object.text
+    businesses_object = requests.get(url, headers=my_headers, params=my_params)
 
-print(businesses_dict)
+    businesses_dict= businesses_object.text
 
-##print(businesses.text)
+    print(businesses_dict)
+
+    ##print(businesses.text)
+search_businesses("restaurant", "Chicago")

@@ -1,2 +1,1 @@
-zip = 60173
-print(zip)
+print("Hello world")
